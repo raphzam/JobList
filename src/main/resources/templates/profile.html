@@ -84,20 +84,26 @@
 <a th:href="@{/deleteauthor/{id} (id=${author.id})}">Delete Profile</a>
 
 
-<h3>Manage Listings</h3>
-<div th:each="job : ${author.postedJobs}">
-
-    Name: [[${job.name}]] <br>
-    Description: [[${job.description}]] <br>
-    Posted Date: [[${job.postedDate}]] <br>
-    Phone number: [[${job.phone}]] <br>
-    Categories: <br>
-
-
-    <a th:href="@{/deletejob/{id} (id=${job.id})}">Delete Listing</a><br>
-    <a th:href="@{/updatejob/{id} (id=${job.id})}">Update Listing</a><br>
-
-    <hr class="my-4">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10">
+            <h3>Manage Listings</h3>
+            <div class="card">
+                <div th:each="job : ${author.postedJobs}">
+                    Name: [[${job.name}]] <br>
+                    Description: [[${job.description}]] <br>
+                    Posted Date: [[${job.postedDate}]] <br>
+                    Phone number: [[${job.phone}]] <br>
+                    Categories: <br>
+                    <a th:href="@{/deletejob/{id} (id=${job.id})}">Delete Listing</a><br>
+                    <a th:href="@{/updatejob/{id} (id=${job.id})}">Update Listing</a><br>
+                    <hr class="my-4">
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
 </div>
 
 <!-- Optional JavaScript -->

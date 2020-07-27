@@ -36,7 +36,7 @@ public class DataLoader implements CommandLineRunner {
         categoryRepository.save(generalLabor);
 
         Category transport = new Category();
-        transport.setTitle("Transport");
+        transport.setTitle("Information Technology");
         categoryRepository.save(transport);
 
 

@@ -57,3 +57,13 @@ Job Links
         <div class="col"></div>
     </div>
 </div>
+
+
+Job Detail
+
+Title: [[${job.name}]]<br>
+Posted by: <a th:href="@{/jobsByAuthor/{id} (id=${jobAuthor.id})}">[[${job.author.name}]]</a><br>
+Posted Date: [[${job.postedDate}]]<br>
+
+Description: [[${job.description}]]<br>
+Contact Number: [[${job.phone}]]<br>

@@ -17,17 +17,22 @@
 
 <div th:replace="frag::navBar"></div>
 
-<h1>Jobs by [[${author.name}]]</h1>
 
-<div th:each="job : ${author.postedJobs}">
-
-    Name: [[${job.name}]] <br>
-    Description: [[${job.description}]] <br>
-    Posted Date: [[${job.postedDate}]] <br>
-    Phone number: [[${job.phone}]] <br>
-    Categories: <br>
-
-    <hr class="my-4">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10">
+            <h1>Jobs by [[${author.name}]]</h1>
+            <div class="card" th:each="job : ${author.postedJobs}">
+                Title: <a th:href="@{/detailjob/{id} (id=${job.id})}">[[${job.name}]]</a> <br>
+                Description: [[${job.description}]] <br>
+                Posted Date: [[${job.postedDate}]] <br>
+                Phone number: [[${job.phone}]] <br>
+                Categories: <br>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
 </div>
 
 <!-- Optional JavaScript -->

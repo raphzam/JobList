@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <style>
+        .media {
+            background-color: white;
+            border-radius: 10px;
+        }
+    </style>
 
 
     <title>Listing Detail</title>
@@ -16,17 +22,25 @@
 <body>
 <div th:replace="frag::navBar"></div>
 
-<h1>Listing Detail</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10">
+            <h5 class="mt-0">Listing Detail</h5>
+            <div class="card">
+                <div class="media-body">
+                    Title: [[${job.name}]]<br>
+                    Posted by: <a th:href="@{/jobsByAuthor/{id} (id=${jobAuthor.id})}">[[${job.author.name}]]</a><br>
+                    Posted Date: [[${job.postedDate}]]<br>
 
-Title: [[${job.name}]]<br>
-
-Posted by: <a th:href="@{/jobsByAuthor/{id} (id=${jobAuthor.id})}">[[${job.author.name}]]</a><br>
-Posted Date: [[${job.postedDate}]]<br>
-
-Description: [[${job.description}]]<br>
-
-Contact Number: [[${job.phone}]]<br>
-
+                    Description: [[${job.description}]]<br>
+                    Contact Number: [[${job.phone}]]<br>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
 
 
 <!-- Optional JavaScript -->
