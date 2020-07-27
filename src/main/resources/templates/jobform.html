@@ -24,7 +24,7 @@
 
 
         <div class="col-10">
-            <h1>Job Form</h1>
+            <h1 class="text-center">New Listing</h1>
             <form th:action="@{/processjob}" th:object="${job}" method="post">
 
                 <input type="hidden" class="form-control" th:field="*{id}"><br>
@@ -46,7 +46,7 @@
 
                 Not seeing an applicable job category? Create a <a th:href="@{/newcategory}">new category.</a><br>
 
-                <button class="text-center btn btn-pill btn-primary" type="submit">Add Job</button>
+                <button class="text-center btn btn-pill btn-primary" type="submit" style="margin-top: 20px; margin-left: 43%;">Add Job</button>
             </form>
         </div>
 

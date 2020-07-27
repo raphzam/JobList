@@ -16,13 +16,27 @@
 <body>
 <div th:replace="frag::navBar"></div>
 
-<h1>New Profile</h1>
-<form th:action="@{/processauthor}" th:object="${author}" method="post">
-    <input type = "hidden" th:field="*{id}">
-    <input type="text" th:field="*{name}">
-    <input type="submit" value="submit">
 
-</form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-3">
+                <h1 class="text-center">New Profile</h1>
+            <div class="card">
+                <div class="card-body">
+                    <form th:action="@{/processauthor}" th:object="${author}" method="post">
+                        <input type="hidden" th:field="*{id}">
+                        <input type="text" th:field="*{name}" class="form-control" placeholder="Profile Name">
+                        <button type="submit" class="btn btn-pill btn-secondary" style="margin-left: 100px;">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
