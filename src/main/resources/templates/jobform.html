@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+
+
+    <title>New Job</title>
+</head>
+<body>
+<div th:replace="frag::navBar"></div>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col"></div>
+
+
+        <div class="col-10">
+            <h1>Job Form</h1>
+            <form th:action="@{/processjob}" th:object="${job}" method="post">
+
+                <input type="hidden" class="form-control" th:field="*{id}"><br>
+                <input type="text" class="form-control" th:field="*{name}" placeholder="Job Title"><br>
+                <textarea class="form-control" th:field="*{description}" placeholder="Description"></textarea><br>
+                <input class="form-control" type="text" th:field="*{postedDate}" placeholder="Posting Date"><br>
+                <select th:field="*{author}" class="form-control" id="exampleFormControlSelect2">
+                    <option th:each="authObj : ${authors}"
+                            th:text="${authObj.name}"
+                            th:value="${authObj.id}">
+                    </option>
+                </select><br>
+                <input type="text" class="form-control" th:field="*{phone}" placeholder="Contact Number">
+
+                <div th:each="one : ${categories}">
+                    <input type="checkbox" th:field="*{categories}" th:value="${one.id}"/>
+                    <label th:text="${one.title}"></label>
+                </div>
+
+                Not seeing an applicable job category? Create a <a th:href="@{/newcategory}">new category.</a><br>
+
+                <button class="text-center" type="submit">Add Job</button>
+            </form>
+        </div>
+
+        <div class="col"></div>
+
+    </div>
+
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

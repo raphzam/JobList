@@ -1,0 +1,42 @@
+Links
+
+Nav Links
+
+<div th:replace="frag::navBar"></div>
+
+
+Author Links
+<a th:href="@{/newauthor}">New Profile</a>
+<a th:href="@{/detailauthor/{id} (id=${author.id})}">Detail Profile</a>
+<a th:href="@{/updateauthor/{id} (id=${author.id})}">Update Profile</a>
+<a th:href="@{/deleteauthor/{id} (id=${author.id})}">Delete Profile</a>
+
+
+Category Links
+<a th:href="@{/newcategory}">New Category</a>
+<a th:href="@{/updatecategory/{id} (id=${category.id})}">Update Category</a>
+<a th:href="@{/deletecategory/{id} (id=${category.id})}">Delete Category</a>
+
+Job Links
+
+<a th:href="@{/newjob}">New Job</a>
+<a th:href="@{/detailjob/{id} (id=${job.id})}">Job Detail</a>
+<a th:href="@{/updatejob/{id} (id=${job.id})}">Update Job</a>
+<a th:href="@{/deletejob/{id} (id=${job.id})}">Delete Job</a>
+
+<a th:href="@{/jobsByAuthor/{id} (id=${author.id})}">Jobs By Author</a>
+
+
+
+<div class="col-sm" th:each="category : ${categories}">
+    <p>[[${category.title}]]
+        <a th:href="@{/updatecategory/{id} (id=${category.id})}">u</a>
+        <a th:href="@{/deletecategory/{id} (id=${category.id})}">d</a>
+
+    </p>
+    <th:block>
+        <ul th:each="job : ${category.jobs}">
+            <a th:href="@{/detailjob/{id} (id=${job.id})}"><li>[[${job.name}]]</li></a>
+        </ul>
+    </th:block>
+</div>
