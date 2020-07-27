@@ -40,3 +40,20 @@ Job Links
         </ul>
     </th:block>
 </div>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <h1>All Jobs</h1>
+            <div th:each="job : ${jobs}">
+                <a th:href="@{/detailjob/{id} (id=${job.id})}">[[${job.name}]]</a>
+                posted by <a th:href="@{/jobsByAuthor/{id} (id=${job.author.id})}">[[${job.author.name}]]</a>
+                on [[${job.postedDate}]]
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

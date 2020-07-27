@@ -17,16 +17,27 @@
 
 <div th:replace="frag::navBar"></div>
 
-<h1>All Jobs</h1>
-
-<div th:each="job : ${jobs}">
-
-    <a th:href="@{/detailjob/{id} (id=${job.id})}">[[${job.name}]]</a>
-    posted by <a th:href="@{/jobsByAuthor/{id} (id=${job.author.id})}">[[${job.author.name}]]</a>
-    on [[${job.postedDate}]]
-
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <div class="card text-center">
+                <div class="card-header">
+                    All Jobs
+                </div>
+                <div th:each="job : ${jobs}" class="list-group list-group-flush">
+                    <a th:href="@{/detailjob/{id} (id=${job.id})}">[[${job.name}]]</a>
+                    posted by <a th:href="@{/jobsByAuthor/{id} (id=${job.author.id})}">[[${job.author.name}]]</a>
+                    on [[${job.postedDate}]]
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
 </div>
+
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
