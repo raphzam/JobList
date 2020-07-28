@@ -28,9 +28,9 @@
     <div class="row">
         <div class="col"></div>
         <div class="col-10">
-            <h5 class="mt-0">Listing Detail</h5>
+            <h3 class="mt-0">Listing Detail</h3>
             <div class="card">
-                <div class="media-body">
+                <div class="card-body">
                     Title: [[${job.name}]]<br>
                     Posted by: <a th:href="@{/jobsByAuthor/{id} (id=${jobAuthor.id})}">[[${job.author.name}]]</a><br>
                     Posted Date: [[${job.postedDate}]]<br>
