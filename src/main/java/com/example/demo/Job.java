@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -93,6 +94,13 @@ public class Job {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public void addCategory(Category category){
+        if (this.categories==null){
+            this.categories = new HashSet<Category>();
+        }
+        this.categories.add(category);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -42,4 +43,6 @@ public class Category {
     public void setTitle(String name) {
         this.title = name;
     }
+
+
 }

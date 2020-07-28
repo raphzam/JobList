@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <div th:replace="frag::navStyles"></div>
 
     <title>Home</title>
 </head>
@@ -19,22 +20,29 @@
 
 <h1 class="text-center">All Jobs and Categories</h1>
 
-
-
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm" th:each="category : ${categories}">
-            <div class="card text-center">
-                <div class="card-header">
-                    [[${category.title}]]
-                </div>
-                <div th:each="job : ${category.jobs}" class="list-group list-group-flush">
-                    <a th:href="@{/detailjob/{id} (id=${job.id})}"><p>[[${job.name}]]</p></a>
+        <div class="col"></div>
+        <div class="col-10">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm" th:each="category : ${categories}">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                [[${category.title}]]
+                            </div>
+                            <div th:each="job : ${category.jobs}" class="list-group list-group-flush">
+                                <a th:href="@{/detailjob/{id} (id=${job.id})}"><p>[[${job.name}]]</p></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="col"></div>
     </div>
 </div>
+
 
 
 <!-- Optional JavaScript -->
