@@ -101,7 +101,7 @@
                 <h1>[[${author.name}]]'s Profile</h1>
                 <h3>Manage Listings</h3>
                 <div class="card">
-                    <div th:each="job : ${author.postedJobs}">
+                    <div class="card-body" th:each="job : ${author.postedJobs}">
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" style="float: right;" type="button"
                                     id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
@@ -110,12 +110,11 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <button class="dropdown-item" type="button"><a
-                                        th:href="@{/deletejob/{id} (id=${job.id})}">Delete
-                                    Listing</a><br></button>
-                                <button class="dropdown-item" type="button"><a
                                         th:href="@{/updatejob/{id} (id=${job.id})}">Update
                                     Listing</a><br></button>
-                                <button class="dropdown-item" type="button">Something else here</button>
+                                <button class="dropdown-item" type="button"><a
+                                        th:href="@{/deletejob/{id} (id=${job.id})}">Delete
+                                    Listing</a><br></button>
                             </div>
                         </div>
                         Name: [[${job.name}]] <br>
@@ -123,8 +122,8 @@
                         Posted Date: [[${job.postedDate}]] <br>
                         Phone number: [[${job.phone}]] <br>
                         Categories: <br>
-                        <a th:href="@{/deletejob/{id} (id=${job.id})}">Delete Listing</a><br>
-                        <a th:href="@{/updatejob/{id} (id=${job.id})}">Update Listing</a><br>
+<!--                        <a th:href="@{/updatejob/{id} (id=${job.id})}">Update Listing</a><br>-->
+<!--                        <a th:href="@{/deletejob/{id} (id=${job.id})}">Delete Listing</a><br>-->
                         <hr class="my-4">
                     </div>
                 </div>
